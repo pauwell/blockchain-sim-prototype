@@ -3,29 +3,27 @@
   Main entry for the application.
 */
 import Blockchain from './components/Blockchain.js'
+import Wallet from './components/Wallet.js'
 import MaterialButton from './components/material-design/MaterialButton.js'
 
 window.addEventListener('load', function(){
   let vm = new Vue({
     el: '#app',
     data: {
-      activeContent: 'welcome'
+      activeContent: 'wallet'
     },
     template: /*html*/`
       <div>
         <div class="tab-bar">
           <ol>
-            <li @click="activeContent='welcome'" v-bind:class="{ selected: activeContent=='welcome' }">Welcome</li>
+            <li @click="activeContent='wallet'" v-bind:class="{ selected: activeContent=='wallet' }">Wallet</li>
             <li @click="activeContent='blockchain'" v-bind:class="{ selected: activeContent=='blockchain' }">Blockchain</li>
             <li @click="activeContent='transaction'" v-bind:class="{ selected: activeContent=='transaction' }">Transaction</li>
           </ol>
         </div>
         <main>
-          <template v-if="activeContent === 'welcome'">
-            <div class="material-card">
-              <h1>Welcome</h1>
-              <material-button>click</material-button>
-            </div>
+          <template v-if="activeContent === 'wallet'">
+            <wallet></wallet>
           </template>
           <template v-if="activeContent === 'blockchain'">
             <blockchain></blockchain>
@@ -39,6 +37,7 @@ window.addEventListener('load', function(){
       </div>`,
     components: {
       Blockchain,
+      Wallet,
       MaterialButton
     }
   });

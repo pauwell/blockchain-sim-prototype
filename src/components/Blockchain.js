@@ -99,7 +99,7 @@ export default {
     <template v-for="(block, index) in blockStorage"> 
       <div :key="block.id">
         <block :id="block.id" :data="block.data" :prevHash="block.prevHash" :nonce="block.nonce"></block>
-        <div class="material-card">
+        <div class="edit-block material-card">
           <label>Change nonce</label><input type="text" v-model="block.nonce" @change="recalculateHash(index)">
           <label>Change previous hash</label><input type="text" v-model="block.prevHash" @change="recalculateHash(index)">
           <label>Change data</label><input type="text" v-model="block.data" @change="recalculateHash(index)">

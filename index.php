@@ -23,6 +23,7 @@
   <div id="app"></div>
   <script type="module" src="src/components/Block.js"></script>
   <script type="module" src="src/components/Blockchain.js"></script>
+  <script type="module" src="src/components/Wallet.js"></script>
   <script type="module" src="src/components/material-design/MaterialButton.js"></script>
   <script type="module" src="src/App.js"></script>
 </body>
