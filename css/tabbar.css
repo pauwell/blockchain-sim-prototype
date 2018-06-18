@@ -1,0 +1,69 @@
+.tab-bar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: white;
+  color: #6200ee;
+  z-index: 10;
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+}
+.tab-bar > p{
+  text-align: left;
+  padding-left: 20px;
+}
+.tab-bar > ol{
+  height: inherit;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+.tab-bar > ol > li{
+  overflow: hidden;
+  position: relative;
+  min-width: 110px;
+  height: 20px;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 0;
+}
+.tab-bar > ol > li:hover{
+  background-color: rgb(238, 238, 238);
+  border-bottom: 3px solid rgb(238, 238, 238);;
+}
+.tab-bar > ol > li:focus{
+  background-color: rgb(238, 238, 238);
+  border-bottom: 3px solid rgb(238, 238, 238);;
+}
+.tab-bar > ol > li.selected{
+  border-bottom: 3px solid #6200ee;
+}
+
+/*.tab-bar > ol > li > .background{
+  background-color: rgb(29, 29, 29);
+  opacity: 0.7;
+  transform: scale(0);
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border-radius: 34px;
+  top: 0;
+  left: 0;
+}*/
+
+/*.tab-layout > .tab-bar > ul > li.ripple > .background{
+  animation-name: tab-item-ripple;
+  animation-duration: 0.2s;
+}
+
+@keyframes tab-item-ripple{
+  0%{
+      transform: scale(0);
+  }
+  100%{
+      transform: scale(3.6);
+  }
+}*/

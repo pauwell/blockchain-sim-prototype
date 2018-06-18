@@ -1,0 +1,29 @@
+body{
+  background: rgb(247, 247, 247);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+ol, ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+main{
+  margin-top: 100px;
+}
+.user-input{
+  margin-top: 20px; 
+}
+.material-button{
+  display: inline-block;
+}
+.block{
+  text-align: left;
+}
+.block span{
+  font-weight: bold;
+}

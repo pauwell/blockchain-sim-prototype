@@ -1,0 +1,16 @@
+{
+    "0": {
+        "id": 0,
+        "nonce": 0,
+        "prevHash": "0x00000000",
+        "hash": "0x0000000000",
+        "data": "<Genesis>"
+    },
+    "1": {
+        "id": 1,
+        "nonce": 0,
+        "prevHash": "0x00000000",
+        "hash": "0x0000000000",
+        "data": "Anna sends Bob 5$. The miner receives 1$."
+    }
+}
