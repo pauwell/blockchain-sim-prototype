@@ -21,9 +21,30 @@ main{
 .material-button{
   display: inline-block;
 }
-.block{
+.block, .edit-block{
   text-align: left;
+  max-width: 640px;
+  margin: 0 auto;
+  overflow: hidden;
+
+  /*
+    @Bug Problem here. The background of the blocks are set
+    from within with javascript to show when theres an error in the block.
+  */
+  background-color: #6200ee;
+  color: white;
 }
 .block span{
   font-weight: bold;
+}
+.wallet h1{
+  color: #6200ee;
+}
+.wallet > section{
+  background-color: #6200ee;
+  color: white;
+}
+.wallet .material-card{
+  max-width: 640px;
+  margin: 0 auto;
 }
