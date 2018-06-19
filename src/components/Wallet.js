@@ -9,17 +9,23 @@ export default {
     return {
       activeContent: 'welcome',
       encryptionBits: 1024,
+      rsaKey: null,
+      rsaKeyJSON: '',
       passPhrase: '',
       publicKey: '',
+      examplePlainText: '',
+      exampleEncrypted: '',
+      exampleDecrypted: '',
     }
   },
   methods: {
     generateKeys(){
       
-      let rsaKey = cryptico.generateRSAKey(this.passPhrase, this.encryptionBits);
-      this.publicKey = cryptico.publicKeyString(rsaKey);
-
-
+      this.rsaKey = cryptico.generateRSAKey(this.passPhrase, this.encryptionBits);
+      this.rsaKeyJSON = this.rsaKey.toJSON();
+      this.publicKey = cryptico.publicKeyString(this.rsaKey);
+      console.log("RsaKey:");
+      console.log(this.rsaKey);
 
 
 
@@ -115,7 +121,8 @@ export default {
       <!-- example -->
       <section class="material-card" v-show="activeContent === 'example'">
         <h2>Example</h2>
-        <p></p>
+        <p>Your private key looks like this:</p>
+        <textarea readonly>{{rsaKeyJSON}}</textarea>
         <material-button>wuff!</material-button>
       </section>
     </div>`
