@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="css/material_button.css">
   <link rel="stylesheet" href="css/material_card.css">
   <script src="external/vue.js"></script><!-- Vue.js -->
-  <script src="external/sha256.min.js"> rel="javascript"</script>
+  <script src="external/sha256.min.js"></script><!-- SHA-256 hashing -->
+  <script src="external/cryptico.browser.js"></script><!-- Cryptico (RSA keygen) -->
   <script>
     let globalBlockData = <?php echo file_get_contents("res/blockchain.json"); ?>;
   </script>
