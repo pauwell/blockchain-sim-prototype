@@ -15,20 +15,18 @@ export default {
       hash: String
     }
   },
-  methods: {
-    backColor(){
-      return (this.id > 1 && this.hash.toString().substring(0, 4) != '6666' ? 'red' : 'white');
-    }
-  },
   computed: {
     calcHash(){
       this.hash = sha256(`${this.nonce} ${this.prevHash} ${this.data}`);
       return this.hash;
+    },
+    isValid(){
+      return (this.id > 1 && this.hash.toString().substring(0, 4) != '6666' ? false : true);
     }
   },
   template: /*html*/`
-    <div class="material-card block" :style="{ background: backColor() }">
-      <p>Block #<span>{{id}}</span></p>
+    <div class="material-card block">
+      <p>Block #<span>{{id}}</span> - Is valid: <span>{{isValid}}</span></p>
       <hr>
       <ol>
         <li>Time: [<span>{{timestamp.toUTCString()}}</span>]</li>   

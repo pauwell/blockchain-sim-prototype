@@ -12,7 +12,7 @@ export default {
   },
   data(){
     return{
-      blockStorage: [], // Stores: { id, data, prev_hash, hash, nonce }
+      blockStorage: [], // Stores: object{ id, data, prev_hash, hash, nonce }
       newBlockData: "",
       newNonceData: 0,
       maxIterations: 1000,
@@ -93,8 +93,10 @@ export default {
   },
   template: /*html*/`
   <div>
+    <!-- Heading. -->
     <h1>The blockchain</h1>
     <b>Valid hashes start with '6666'</b>
+
     <!-- Blocks. -->
     <template v-for="(block, index) in blockStorage"> 
       <div :key="block.id">
@@ -104,8 +106,10 @@ export default {
           <label>Change previous hash</label><input type="text" v-model="block.prevHash" @change="recalculateHash(index)">
           <label>Change data</label><input type="text" v-model="block.data" @change="recalculateHash(index)">
         </div>
+        <p></p>
       </div>
     </template>
+
     <!-- User input. -->
     <div class="user-input">
       <label>Max iterations</label>
