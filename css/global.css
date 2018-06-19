@@ -51,8 +51,8 @@ main{
   margin: 0 auto;
 }
 .wallet textarea{
-  width: 240px;
-  height: 100px;
+  width: 90%;
+  height: 150px;
 }
 .wallet li{
   text-align: left;

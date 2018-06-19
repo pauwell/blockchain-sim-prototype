@@ -79,7 +79,6 @@ export default {
       for(let i=0; i<(this.blockStorage.length - 1); ++i){
         console.log(this.blockStorage);
         if(this.blockStorage[i].hash != this.blockStorage[i+1].prevHash){
-
           alert("Found an error in Block #" + i);
           return;
         }
