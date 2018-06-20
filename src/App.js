@@ -5,6 +5,7 @@
 import Blockchain from './components/Blockchain.js'
 import Wallet from './components/Wallet.js'
 import MaterialButton from './components/material-design/MaterialButton.js'
+import MaterialTabbar from './components/material-design/MaterialTabbar.js'
 
 window.addEventListener('load', function(){
   let vm = new Vue({
@@ -14,13 +15,11 @@ window.addEventListener('load', function(){
     },
     template: /*html*/`
       <div>
-        <div class="tab-bar">
-          <ol>
-            <li @click="activeContent='wallet'" v-bind:class="{ selected: activeContent=='wallet' }">Wallet</li>
-            <li @click="activeContent='blockchain'" v-bind:class="{ selected: activeContent=='blockchain' }">Blockchain</li>
-            <li @click="activeContent='transaction'" v-bind:class="{ selected: activeContent=='transaction' }">Transaction</li>
-          </ol>
-        </div>
+        <material-tabbar>
+          <li @click="activeContent='wallet'" v-bind:class="{ selected: activeContent=='wallet' }">Wallet</li>
+          <li @click="activeContent='blockchain'" v-bind:class="{ selected: activeContent=='blockchain' }">Blockchain</li>
+          <li @click="activeContent='transaction'" v-bind:class="{ selected: activeContent=='transaction' }">Transaction</li>
+        </material-tabbar>
         <main>
           <template v-if="activeContent === 'wallet'">
             <wallet></wallet>
@@ -38,9 +37,8 @@ window.addEventListener('load', function(){
     components: {
       Blockchain,
       Wallet,
-      MaterialButton
+      MaterialButton,
+      MaterialTabbar
     }
   });
-  
- // vm.$mount('#app');
 });
