@@ -12,7 +12,7 @@ export default {
     },
     rounded: {
       default: false,
-      type: Boolean
+      type: Boolean 
     }
   },
   methods: {

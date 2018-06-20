@@ -6,6 +6,7 @@
   background-color: white;
   color: #6200ee;
   z-index: 10;
+  overflow: hidden;
   box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
 }
 .tab-bar > p{
@@ -32,29 +33,30 @@
 }
 .tab-bar > ol > li:hover{
   background-color: rgb(238, 238, 238);
-  border-bottom: 3px solid rgb(238, 238, 238);;
+  border-bottom: 3px solid rgb(238, 238, 238);
 }
 .tab-bar > ol > li:focus{
   background-color: rgb(238, 238, 238);
-  border-bottom: 3px solid rgb(238, 238, 238);;
+  border-bottom: 3px solid rgb(238, 238, 238);
 }
 .tab-bar > ol > li.selected{
   border-bottom: 3px solid #6200ee;
 }
 
-/*.tab-bar > ol > li > .background{
-  background-color: rgb(29, 29, 29);
+.tab-bar > .rippler{
+  background-color: rgb(80, 80, 80);
   opacity: 0.7;
   transform: scale(0);
   position: absolute;
-  width: 68px;
-  height: 68px;
+  width: 28px;
+  height: 28px;
   border-radius: 34px;
+  z-index: 5;
   top: 0;
   left: 0;
-}*/
+}
 
-/*.tab-layout > .tab-bar > ul > li.ripple > .background{
+.tab-bar.ripple > .rippler{
   animation-name: tab-item-ripple;
   animation-duration: 0.2s;
 }
@@ -66,4 +68,4 @@
   100%{
       transform: scale(3.6);
   }
-}*/
+}
