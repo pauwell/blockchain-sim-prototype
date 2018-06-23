@@ -4,6 +4,7 @@
 */
 import Blockchain from './components/Blockchain.js'
 import Wallet from './components/Wallet.js'
+import Transaction from './components/Transaction.js'
 import MaterialButton from './components/material-design/MaterialButton.js'
 import MaterialTabbar from './components/material-design/MaterialTabbar.js'
 
@@ -28,15 +29,14 @@ window.addEventListener('load', function(){
             <blockchain></blockchain>
           </template>
           <template v-if="activeContent === 'transaction'">
-            <div class="material-card">
-              <h1>Transactions</h1>
-            </div>
+            <transaction></transaction>
           </template>
         </main>
       </div>`,
     components: {
       Blockchain,
       Wallet,
+      Transaction,
       MaterialButton,
       MaterialTabbar
     }
