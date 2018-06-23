@@ -43,8 +43,8 @@ main{
   color: #6200ee;
 }
 .wallet > section{
-  background-color: #6200ee;
-  color: white;
+  /*background-color: #6200ee;
+  color: white;*/
 }
 .wallet .material-card{
   max-width: 640px;
