@@ -93,32 +93,39 @@ export default {
       </div>
       
       <!-- welcome -->
-      <section class="material-card" v-show="activeContent === 'welcome'">
-        <h2>Don't have an address yet?</h2>
-        <p>Create your wallet and start mining now!</p>
-        <material-button @click.native="activeContent='phrase'">Create address</material-button>
-      </section>
-      <section class="material-card" v-show="activeContent === 'welcome'">
-        <h3>I am good to go!</h3>
-        <p>Enter passphrase to access your wallet.</p>
-        <form ref="loginForm" method="GET" action="./php/manage_user.php">
-          <input type="hidden" name="cmd" value="login" >
-          <input type="text" name="phrase"><!-- type="password"? -->
-          <material-button @click.native="submitLogin()">Go</material-button>
-        </form>
-      </section>
+      <transition name="slide">
+        <section class="material-card" v-if="activeContent === 'welcome'">
+          <h2>Don't have an address yet?</h2>
+          <p>Create your wallet and start mining now!</p>
+          <material-button @click.native="activeContent='phrase'">Create address</material-button>
+        </section>
+      </transition>
+      <transition name="slide">
+        <section class="material-card" v-if="activeContent === 'welcome'">
+          <h3>I am good to go!</h3>
+          <p>Enter passphrase to access your wallet.</p>
+          <form ref="loginForm" method="GET" action="./php/manage_user.php">
+            <input type="hidden" name="cmd" value="login" >
+            <input type="text" name="phrase"><!-- type="password"? -->
+            <material-button @click.native="submitLogin()">Go</material-button>
+          </form>
+        </section>
+      </transition>
 
       <!-- phrase -->
-      <section class="material-card" v-show="activeContent === 'phrase'">
+      <transition name="slide">
+      <section class="material-card" v-if="activeContent === 'phrase'">
         <h2>Pick your passphrase</h2>
         <label>Passphrase </label><input type="text" v-model="passPhrase">
         <p></p>
         <material-button @click.native="pickPassPhrase()">Pick</material-button>
         <material-button color="white" @click.native="abort()">Abort</material-button>
       </section>
+      </transition>
       
       <!-- keygen -->
-      <section class="material-card" v-show="activeContent === 'keygen'">
+      <transition name="slide">
+      <section class="material-card" v-if="activeContent === 'keygen'">
         <h2>Generate your address</h2>
         <textarea v-model="publicKey" readonly></textarea>
         <p></p>
@@ -126,9 +133,11 @@ export default {
         <material-button @click.native="pickAddress()">Next</material-button>
         <material-button color="white" @click.native="abort()">Abort</material-button>
       </section>
+      </transition>
 
       <!-- finish -->
-      <section class="material-card" v-show="activeContent === 'finish'">
+      <transition name="slide">
+      <section class="material-card" v-if="activeContent === 'finish'">
         <h2>Example</h2>
         <p>Now a short example </p>
         <p>Here follows a short demonstration and a warning to not lose your passphrase!</p>
@@ -138,5 +147,6 @@ export default {
           <material-button @click.native="submitNewAddress()">Finish</material-button>
         </form>
       </section>
+      </transition>
     </div>`
 }

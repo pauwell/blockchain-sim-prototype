@@ -7,6 +7,7 @@
   <title>pauwel.io { coming soon }</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
   <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/transition.css"><!-- Vue js transitions -->
   <link rel="stylesheet" href="css/material_tabbar.css">
   <link rel="stylesheet" href="css/material_button.css">
   <link rel="stylesheet" href="css/material_card.css">
