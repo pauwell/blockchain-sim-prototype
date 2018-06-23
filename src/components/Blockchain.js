@@ -93,8 +93,8 @@ export default {
   template: /*html*/`
   <div>
     <!-- Heading. -->
-    <h1>The blockchain</h1>
-    <b>Valid hashes start with '6666'</b>
+    <h1>Blockchain</h1>
+    <b>Valid hashes start with 4(!) zeros.</b>
 
     <!-- Blocks. -->
     <template v-for="(block, index) in blockStorage"> 

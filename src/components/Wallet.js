@@ -12,10 +12,7 @@ export default {
       rsaKey: null,
       rsaKeyJSON: '',
       passPhrase: '',
-      publicKey: '',
-      examplePlainText: '',
-      exampleEncrypted: '',
-      exampleDecrypted: '',
+      publicKey: ''
     }
   },
   methods: {
@@ -26,9 +23,6 @@ export default {
       this.publicKey = cryptico.publicKeyString(this.rsaKey);
       console.log("RsaKey:");
       console.log(this.rsaKey);
-
-
-
 
       /*console.log("Matt's passphrase: " + this.passPhrase);
       console.log("Bit length: " + this.encryptionBits);
@@ -64,10 +58,16 @@ export default {
     },
     pickAddress(){
       if(this.publicKey.length != 0){
-        this.activeContent = 'example';
+        this.activeContent = 'finish';
       }else{
         alert('Please press the \'Generate\'-button to generate you address.');
       }
+    },
+    submitLogin(){
+      this.$refs.loginForm.submit();
+    },
+    submitNewAddress(){
+      this.$refs.registerForm.submit();
     },
     abort(){
       // Reset all member.
@@ -88,15 +88,24 @@ export default {
         <ol>
           <li>Step 1) Passphrase: <i><span>{{passPhrase}}</span></i></li>
           <li v-if="activeContent !== 'phrase'">Step 2) Generate address: <i><span>{{publicKey}}</span></i></li>
-          <li v-if="activeContent === 'example'">Step 3) Example</li>
+          <li v-if="activeContent === 'finish'">Step 3) Finish up!</li>
         </ol>
       </div>
       
       <!-- welcome -->
       <section class="material-card" v-show="activeContent === 'welcome'">
         <h2>Don't have an address yet?</h2>
-        <p>Create your wallet and start mining.</p>
+        <p>Create your wallet and start mining now!</p>
         <material-button @click.native="activeContent='phrase'">Create address</material-button>
+      </section>
+      <section class="material-card" v-show="activeContent === 'welcome'">
+        <h3>I am good to go!</h3>
+        <p>Enter passphrase to access your wallet.</p>
+        <form ref="loginForm" method="GET" action="./php/manage_user.php">
+          <input type="hidden" name="cmd" value="login" >
+          <input type="text" name="phrase"><!-- type="password"? -->
+          <material-button @click.native="submitLogin()">Go</material-button>
+        </form>
       </section>
 
       <!-- phrase -->
@@ -118,12 +127,16 @@ export default {
         <material-button color="white" @click.native="abort()">Abort</material-button>
       </section>
 
-      <!-- example -->
-      <section class="material-card" v-show="activeContent === 'example'">
+      <!-- finish -->
+      <section class="material-card" v-show="activeContent === 'finish'">
         <h2>Example</h2>
-        <p>Your private key looks like this:</p>
-        <textarea readonly>{{rsaKeyJSON}}</textarea>
-        <material-button>wuff!</material-button>
+        <p>Now a short example </p>
+        <p>Here follows a short demonstration and a warning to not lose your passphrase!</p>
+        <form ref="registerForm" method="GET" action="./php/manage_user.php">
+          <input type="hidden" name="cmd" value="register" >
+          <input type="hidden" name="address" :value="publicKey">
+          <material-button @click.native="submitNewAddress()">Finish</material-button>
+        </form>
       </section>
     </div>`
 }

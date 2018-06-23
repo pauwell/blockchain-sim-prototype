@@ -28,7 +28,7 @@ export default {
     }
   },
   template: /*html*/`
-    <div :class="{ 'tab-bar': true, 'ripple': isRippleActive }" @mousedown="ripple()" >
+    <div :class="{ 'tab-bar': true, 'ripple': isRippleActive }" @mousedown="ripple()">
       <div class="rippler" ref="rippler"></div>
       <ol>
         <slot></slot>
