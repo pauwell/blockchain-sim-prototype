@@ -20,29 +20,38 @@ window.addEventListener('load', function(){
           <li 
             @mousedown="activeContent='wallet'" 
             v-bind:class="{ selected: activeContent=='wallet' }">
-            <i class="fa fa-suitcase"></i>&nbsp;Wallet
+            <i class="fa fa-suitcase"></i>&nbsp;<span>Wallet</span>
           </li>
           <li 
             @mousedown="activeContent='blockchain'" 
             v-bind:class="{ selected: activeContent=='blockchain' }">
-            <i class="fa fa-link"></i>&nbsp;Blockchain
+            <i class="fa fa-link"></i>&nbsp;<span>Blockchain</span>
           </li>
           <li 
             @mousedown="activeContent='transaction'" 
             v-bind:class="{ selected: activeContent=='transaction' }">
-            <i class="fa fa-credit-card"></i>&nbsp;Transaction
+            <i class="fa fa-credit-card"></i>&nbsp;<span>Transaction</span>
           </li>
+          <material-button :hollow="true" :showRipple="false">
+            <i class="fa fa-sign-in"></i>&nbsp;<span>Sign in</span>
+          </material-button>
         </material-tabbar>
         <main>
-          <template v-if="activeContent === 'wallet'">
-            <wallet></wallet>
-          </template>
-          <template v-if="activeContent === 'blockchain'">
-            <blockchain></blockchain>
-          </template>
-          <template v-if="activeContent === 'transaction'">
-            <transaction></transaction>
-          </template>
+          <transition name="fade">
+            <template v-if="activeContent === 'wallet'">
+              <wallet></wallet>
+            </template>
+          </transition>
+          <transition name="fade">
+            <template v-if="activeContent === 'blockchain'">
+              <blockchain></blockchain>
+            </template>
+          </transition>
+          <transition name="fade">
+            <template v-if="activeContent === 'transaction'">
+              <transaction></transaction>
+            </template>
+          </transition>
         </main>
       </div>`,
     components: {

@@ -63,9 +63,6 @@ export default {
         alert('Please press the \'Generate\'-button to generate you address.');
       }
     },
-    submitLogin(){
-      this.$refs.loginForm.submit();
-    },
     submitNewAddress(){
       this.$refs.registerForm.submit();
     },
@@ -104,13 +101,10 @@ export default {
           <h2>Don't have an address yet?</h2>
           <p>Create your wallet and start mining now!</p>
           <material-button @click.native="activeContent='phrase'">Create address</material-button>
-          <h3>I am good to go!</h3>
-          <p>Enter passphrase to access your wallet.</p>
-          <form ref="loginForm" method="GET" action="./php/manage_user.php">
-            <input type="hidden" name="cmd" value="login" >
-            <input type="text" name="phrase"><!-- type="password"? -->
-            <material-button @click.native="submitLogin()"><i class="fa fa-sign-in"></i>&nbsp;Sign in</material-button>
-          </form>
+          <p>or</p>
+          <material-button :hollow="true">
+            <i class="fa fa-sign-in"></i>&nbsp;Sign in
+          </material-button>
         </section>
       </transition>
 

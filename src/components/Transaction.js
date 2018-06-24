@@ -22,6 +22,9 @@ export default {
       <div class="material-card" v-if="show">
         <h2>New Transaction</h2>
         <i class="fa fa-handshake-o"></i>
+        <form>
+          <input type="text">
+        </form>
       </div>
     </transition>
     <material-button @click.native="show = !show" :rounded="true">+</material-button>
