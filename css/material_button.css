@@ -57,6 +57,24 @@
   height: 32px;
 }
 
+/* Hollow button. */
+.material-button.hollow{
+    border: 3px solid rgb(65, 184, 131);
+    color: rgb(65, 184, 131);
+}
+
+/* Show only icon on small screens. */
+@media only screen and (max-width: 600px){
+    .material-button{
+        min-width: 32px;
+        padding: 10px 3px;
+    }
+
+    .material-button > .content > *:not(i){
+        display: none;
+    }
+}
+
 /* Active. */
 .material-button:active{
     box-shadow: 0 0 3px rgba(0,0,0,.12), 0 3px 3px rgba(0,0,0,.2);

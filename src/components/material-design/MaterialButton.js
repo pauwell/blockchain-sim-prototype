@@ -10,14 +10,22 @@ export default {
       default: 'rgb(65, 184, 131)',
       type: String
     },
+    showRipple:{
+      default: true,
+      type: Boolean
+    },
     rounded: {
       default: false,
       type: Boolean 
+    },
+    hollow: {
+      default: false,
+      type: Boolean
     }
   },
   methods: {
     ripple(){
-      if(this.isRippleActive){
+      if(!this.showRipple || this.isRippleActive){
         return;
       }
 
@@ -38,8 +46,11 @@ export default {
     } 
   },
   template: /*html*/`
-    <div :class="{ 'material-button': true, 'rounded': rounded, 'ripple': isRippleActive }" 
-      :style="{ backgroundColor: this.color }" @mousedown="ripple()">
+    <div 
+      :class="{ 'material-button': true, 'rounded': rounded, 'ripple': isRippleActive, 'hollow': hollow }" 
+      :style="{ backgroundColor: hollow ? 'transparent' : color }" 
+      @mousedown="ripple()"
+    >
       <div class="rippler" ref="rippler"></div>
       <div class="content">
         <slot></slot>
