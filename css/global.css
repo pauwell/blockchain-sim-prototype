@@ -45,6 +45,9 @@ main{
 .wallet > section{
   /*background-color: #6200ee;
   color: white;*/
+  position: absolute;
+  left: 0;
+  right: 0;
 }
 .wallet .material-card{
   max-width: 640px;
