@@ -84,11 +84,17 @@ export default {
       <div class="material-card">
         <h1>Wallet</h1>
       </div>
-      <div class="material-card" v-show="activeContent !== 'welcome'">
+      <div class="material-card">
         <ol>
-          <li>Step 1) Passphrase: <i><span>{{passPhrase}}</span></i></li>
-          <li v-if="activeContent !== 'phrase'">Step 2) Generate address: <i><span>{{publicKey}}</span></i></li>
+        <transition name="fade">
+          <li v-if="activeContent !== 'welcome'">Step 1) Passphrase: <i><span>{{passPhrase}}</span></i></li>
+        </transition>
+        <transition name="fade">
+          <li v-if="activeContent !== 'welcome' && activeContent !== 'phrase'">Step 2) Generate address: <i><span>{{publicKey}}</span></i></li>
+        </transition>  
+        <transition name="fade">  
           <li v-if="activeContent === 'finish'">Step 3) Finish up!</li>
+        </transition>
         </ol>
       </div>
       
@@ -98,16 +104,12 @@ export default {
           <h2>Don't have an address yet?</h2>
           <p>Create your wallet and start mining now!</p>
           <material-button @click.native="activeContent='phrase'">Create address</material-button>
-        </section>
-      </transition>
-      <transition name="slide">
-        <section class="material-card" v-if="activeContent === 'welcome'">
           <h3>I am good to go!</h3>
           <p>Enter passphrase to access your wallet.</p>
           <form ref="loginForm" method="GET" action="./php/manage_user.php">
             <input type="hidden" name="cmd" value="login" >
             <input type="text" name="phrase"><!-- type="password"? -->
-            <material-button @click.native="submitLogin()">Go</material-button>
+            <material-button @click.native="submitLogin()"><i class="fa fa-sign-in"></i>&nbsp;Sign in</material-button>
           </form>
         </section>
       </transition>

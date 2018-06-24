@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>pauwel.io { coming soon }</title>
   <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/transition.css"><!-- Vue js transitions -->
   <link rel="stylesheet" href="css/material_tabbar.css">

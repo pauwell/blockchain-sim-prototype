@@ -20,7 +20,8 @@ export default {
     </div>
     <transition name="slide">
       <div class="material-card" v-if="show">
-        <p>Am I even here?</p>
+        <h2>New Transaction</h2>
+        <i class="fa fa-handshake-o"></i>
       </div>
     </transition>
     <material-button @click.native="show = !show" :rounded="true">+</material-button>

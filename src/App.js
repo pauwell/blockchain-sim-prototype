@@ -17,9 +17,21 @@ window.addEventListener('load', function(){
     template: /*html*/`
       <div>
         <material-tabbar>
-          <li @mousedown="activeContent='wallet'" v-bind:class="{ selected: activeContent=='wallet' }">Wallet</li>
-          <li @mousedown="activeContent='blockchain'" v-bind:class="{ selected: activeContent=='blockchain' }">Blockchain</li>
-          <li @mousedown="activeContent='transaction'" v-bind:class="{ selected: activeContent=='transaction' }">Transaction</li>
+          <li 
+            @mousedown="activeContent='wallet'" 
+            v-bind:class="{ selected: activeContent=='wallet' }">
+            <i class="fa fa-suitcase"></i>&nbsp;Wallet
+          </li>
+          <li 
+            @mousedown="activeContent='blockchain'" 
+            v-bind:class="{ selected: activeContent=='blockchain' }">
+            <i class="fa fa-link"></i>&nbsp;Blockchain
+          </li>
+          <li 
+            @mousedown="activeContent='transaction'" 
+            v-bind:class="{ selected: activeContent=='transaction' }">
+            <i class="fa fa-credit-card"></i>&nbsp;Transaction
+          </li>
         </material-tabbar>
         <main>
           <template v-if="activeContent === 'wallet'">
